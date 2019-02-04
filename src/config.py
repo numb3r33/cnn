@@ -1,0 +1,1 @@
+LABELS_URL = 'https://s3.amazonaws.com/outcome-blog/imagenet/labels.json'
