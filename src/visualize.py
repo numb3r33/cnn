@@ -16,7 +16,7 @@ def class_saliency_map(input_filepath, model_name, class_name_index):
         image.requires_grad = True
 
         # label tensor
-        y = torch.cuda.LongTensor([label_index])
+        y = torch.cuda.LongTensor([class_name_index])
 
         # put model,on GPU
         model = model.cuda()
