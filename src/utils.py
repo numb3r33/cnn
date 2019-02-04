@@ -1,4 +1,5 @@
 import requests
+import os
 import matplotlib.pyplot as plt
 
 from PIL import Image
