@@ -6,7 +6,7 @@ import argparse
 
 from utils import *
 
-def class_saliency_map(input_filepath, model_name, class_name_index):
+def class_saliency_map(input_filepath, model_name, class_name_index, output_path):
     if check_model_support(model_name):
         image = load_image(input_filepath)
         model = load_model(model_name)
@@ -46,7 +46,8 @@ def class_saliency_map(input_filepath, model_name, class_name_index):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Visualize CNN')
     
-    parser.add_argument('-input_path', help='Path to input image')     
+    parser.add_argument('-input_path',  help='Path to input image')
+    parser.add_argument('-output_path', help='Path to output image')     
     parser.add_argument('-label', help='Target Name')
     parser.add_argument('-model', help='Model to use') 
     parser.add_argument('-o', help='Operation to be performed')
@@ -57,11 +58,12 @@ if __name__ == "__main__":
         input_filepath = args.input_path
         model_name     = args.model
         class_name     = args.label
+        output_path    = args.output_path
 
         class_name_index = class_name_to_index(class_name)
 
         if class_name_index == -1:
             raise ValueError('Class name does not exist.')
 
-        class_saliency_map(input_filepath, model_name, class_name_index)    
+        class_saliency_map(input_filepath, model_name, class_name_index, output_path)    
 

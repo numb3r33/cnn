@@ -1,5 +1,6 @@
 import requests
 import os
+import numpy as np
 import matplotlib.pyplot as plt
 
 from PIL import Image
@@ -55,7 +56,7 @@ def post_process(img):
     return img
 
 
-def show_saliency_maps(image, saliency_map):
+def show_saliency_maps(image, saliency_map, output_path):
     N = 1 # number of images
     
     for i in range(N):
@@ -68,4 +69,4 @@ def show_saliency_maps(image, saliency_map):
         plt.axis('off')
         plt.gcf().set_size_inches(12, 5)
     
-    plt.show()
+    plt.savefig(output_path)
