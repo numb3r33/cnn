@@ -37,7 +37,7 @@ def class_saliency_map(input_filepath, model_name, class_name_index, output_path
 
         image        = image.data.squeeze(0).cpu().detach().numpy().transpose(1, 2, 0)
         image        = post_process(image)
-        saliency_map = saliency_map.squeeze(0).cpu().detach().numpy()
+        saliency_map = saliency_maps.squeeze(0).cpu().detach().numpy()
         saliency_map = post_process(saliency_map)
         
         show_saliency_maps(image, saliency_map)
