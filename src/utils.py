@@ -17,7 +17,7 @@ def class_name_to_index(class_name):
     return -1
 
 def load_image(filename):
-    if os.path.exists(filename):
+    if not os.path.exists(filename):
         raise FileNotFoundError('No such file exists.')
     
     return Image.open(filename)
