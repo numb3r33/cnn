@@ -40,7 +40,7 @@ def class_saliency_map(input_filepath, model_name, class_name_index, output_path
         saliency_map = saliency_maps.squeeze(0).cpu().detach().numpy()
         saliency_map = post_process(saliency_map)
         
-        show_saliency_maps(image, saliency_map)
+        show_saliency_maps(image, saliency_map, output_path)
         
 
 if __name__ == "__main__":
