@@ -10,7 +10,7 @@ def class_name_to_index(class_name):
     labels = {int(key):value for (key, value) in requests.get(LABELS_URL).json().items()}
     
     for k, v in labels.items():
-        if v in class_name.split(', '):
+        if class_name in v.split(', '):
             return k
     
     return -1
